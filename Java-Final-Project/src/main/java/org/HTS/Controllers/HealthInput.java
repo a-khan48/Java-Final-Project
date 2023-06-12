@@ -46,7 +46,7 @@ public class HealthInput {
                     performExerciseEntry(scanner);
                     break;
                 case 3:
-                    logSleepRecords(scanner);
+                    performSleepEntry(scanner);
                     break;
                 case 0:
                     inputRunning = false;
@@ -99,56 +99,56 @@ public class HealthInput {
         System.out.println("Exercise entry added successfully.");
     }
 
-//    private void performSleepEntry(Scanner scanner) {
-//        System.out.print("Enter the time you went to sleep (HH:MM format): ");
-//        String sleepTimeStr = scanner.nextLine();
-//        System.out.print("Enter the time you woke up (HH:MM format): ");
-//        String wakeupTimeStr = scanner.nextLine();
-//
-//        try {
-//            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-//            Date sleepTime = sdf.parse(sleepTimeStr);
-//            Date wakeupTime = sdf.parse(wakeupTimeStr);
-//
-//            Sleep sleepEntry = new Sleep(sleepTime, wakeupTime);
-//
-//            // Store the sleep entry in the SleepFile
-//            try (FileWriter fileWriter = new FileWriter(SLEEP_FILE_PATH, true)) {
-//                fileWriter.write(sleepEntry.getSleepTime() + "," + sleepEntry.getWakeTime() + "\n");
-//            } catch (IOException e) {
-//                System.out.println("Error occurred while writing to the SleepFile: " + e.getMessage());
-//            }
-//
-//            System.out.println("Sleep entry added successfully.");
-//        } catch (Exception e) {
-//            System.out.println("Invalid time format. Sleep entry not added.");
-//        }
-//    }
-private void logSleepRecords(Scanner scanner) {
-    System.out.print("Enter the time you went to sleep (hh:mm): ");
-    String sleepTimeStr = scanner.nextLine();
+    private void performSleepEntry(Scanner scanner) {
+        System.out.print("Enter the time you went to sleep (HH:MM format): ");
+        String sleepTimeStr = scanner.nextLine();
+        System.out.print("Enter the time you woke up (HH:MM format): ");
+        String wakeupTimeStr = scanner.nextLine();
 
-    System.out.print("Enter the time you woke up (hh:mm): ");
-    String wakeUpTimeStr = scanner.nextLine();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+            Date sleepTime = sdf.parse(sleepTimeStr);
+            Date wakeupTime = sdf.parse(wakeupTimeStr);
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-    LocalTime sleepTime = LocalTime.parse(sleepTimeStr, formatter);
-    LocalTime wakeUpTime = LocalTime.parse(wakeUpTimeStr, formatter);
+            Sleep sleepEntry = new Sleep(sleepTime, wakeupTime);
 
-    Duration sleepDuration = Duration.between(sleepTime, wakeUpTime);
-    long hoursOfSleep = sleepDuration.toHours();
+            // Store the sleep entry in the SleepFile
+            try (FileWriter fileWriter = new FileWriter(SLEEP_FILE_PATH, true)) {
+                fileWriter.write(sleepEntry.getSleepTime() + "," + sleepEntry.getWakeTime() + "\n");
+            } catch (IOException e) {
+                System.out.println("Error occurred while writing to the SleepFile: " + e.getMessage());
+            }
 
-    try {
-        PrintWriter writer = new PrintWriter(new FileWriter("SleepFile.txt", true));
-        writer.println("Sleep Time: " + sleepTime.format(formatter));
-        writer.println("Wake Up Time: " + wakeUpTime.format(formatter));
-        writer.println("Total Hours of Sleep: " + hoursOfSleep);
-        writer.println(); // Add an empty line between sleep entries
-        writer.close();
-        System.out.println("Sleep record saved to SleepFile.txt");
-    } catch (IOException e) {
-        System.out.println("An error occurred while saving the sleep file.");
-        e.printStackTrace();
+            System.out.println("Sleep entry added successfully.");
+        } catch (Exception e) {
+            System.out.println("Invalid time format. Sleep entry not added.");
+        }
     }
+//private void logSleepRecords(Scanner scanner) {
+//    System.out.print("Enter the time you went to sleep (hh:mm): ");
+//    String sleepTimeStr = scanner.nextLine();
+//
+//    System.out.print("Enter the time you woke up (hh:mm): ");
+//    String wakeUpTimeStr = scanner.nextLine();
+//
+//    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+//    LocalTime sleepTime = LocalTime.parse(sleepTimeStr, formatter);
+//    LocalTime wakeUpTime = LocalTime.parse(wakeUpTimeStr, formatter);
+//
+//    Duration sleepDuration = Duration.between(sleepTime, wakeUpTime);
+//    long hoursOfSleep = sleepDuration.toHours();
+//
+//    try {
+//        PrintWriter writer = new PrintWriter(new FileWriter("SleepFile.txt", true));
+//        writer.println("Sleep Time: " + sleepTime.format(formatter));
+//        writer.println("Wake Up Time: " + wakeUpTime.format(formatter));
+//        writer.println("Total Hours of Sleep: " + hoursOfSleep);
+//        writer.println(); // Add an empty line between sleep entries
+//        writer.close();
+//        System.out.println("Sleep record saved to SleepFile.txt");
+//    } catch (IOException e) {
+//        System.out.println("An error occurred while saving the sleep file.");
+//        e.printStackTrace();
+//    }
 }
-}
+

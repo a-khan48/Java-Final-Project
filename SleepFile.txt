@@ -1,20 +1,3 @@
-Sleep Time: 09:00
-Wake Up Time: 06:00
-Total Hours of Sleep: -3
-
-Sleep Time: 11:00
-Wake Up Time: 08:00
-Total Hours of Sleep: -3
-
-Sleep Time: 09:00
-Wake Up Time: 06:00
-Total Hours of Sleep: -3
-
-Sleep Time: 11:00
-Wake Up Time: 08:00
-Total Hours of Sleep: -3
-
-Sleep Time: 09:00
-Wake Up Time: 07:00
-Total Hours of Sleep: -2
-
+Thu Jan 01 09:00:00 EST 1970,Thu Jan 01 06:00:00 EST 1970
+Thu Jan 01 11:00:00 EST 1970,Thu Jan 01 08:00:00 EST 1970
+Thu Jan 01 09:00:00 EST 1970,Thu Jan 01 07:00:00 EST 1970
