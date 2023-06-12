@@ -1,0 +1,4 @@
+Mon Jun 12 16:30:13 EDT 2023,Running,15.0,50.0
+Mon Jun 12 16:30:29 EDT 2023,Weight Lifting,60.0,1000.0
+Mon Jun 12 16:30:38 EDT 2023,Weight Lifting,25.0,100.0
+Mon Jun 12 16:30:51 EDT 2023,Yoga,1.0,700.0
