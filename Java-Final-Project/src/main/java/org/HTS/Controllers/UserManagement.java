@@ -47,7 +47,7 @@ public class UserManagement {
             currentUser = new User(username); // Create a User object for the newly created user
             System.out.println("User created successfully!");
         }
-        SaveData.saveUsers(users); // DONT FORGET THIS OTHERWISE IT WONT SAVE
+        SaveData.saveUsers(users);
     }
 
     public boolean userLogin(Scanner scanner) {

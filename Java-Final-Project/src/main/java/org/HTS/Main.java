@@ -14,7 +14,7 @@ public class Main {
 
         boolean loggedIn = userManager.userLogin(scanner);
 
-        if (loggedIn) { // ahmad
+        if (loggedIn) { // user: ahmad
             System.out.println("Logged In Successfully!");
             runHealthMenu(); // Menu to prompt Health Input or Health Analyzer
 
@@ -41,7 +41,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    manager.healthDataInput(scanner); // Pass the Scanner object as an argument
+                    manager.healthDataInput(scanner); // Passing in scanner object as an argument
                     break;
                 case 2:
                     data.healthAnalysisData(scanner);
